@@ -1,0 +1,80 @@
+    // This is the code that asks the user if u wanted to make a puchase
+    private void makePurchase()
+    {
+        String askUser = readLine("Would you like to make a purchase? Answear with yes or no. ");
+        while(true)
+        {
+            if(askUser.equalsIgnoreCase("yes"))
+            {
+                inventory();
+                userDecision();
+                break;
+            }
+            if(askUser.equalsIgnoreCase("no"))
+            {
+                System.out.println("OK. Have a nice day");
+                break;
+            }
+        }
+    }
+    // the code that asks the user what they want to purchase
+    private void userDecision()
+    {
+        
+        while(true)
+        {
+            String read = readLine("What do you want to purchase today: ");
+            if(read.equalsIgnoreCase("chocolate bar"))
+            {
+                System.out.println("You are purchasing a chocolate bar");
+                int amountBars = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBars + " chocolate bars");
+                break;
+            }
+            else if(read.equalsIgnoreCase("chips"))
+            {
+                System.out.println("You are purchasing a bag of chips");
+                int amountChips = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountChips + " bags of chips");
+                break;
+            }
+            else if(read.equalsIgnoreCase("black pens"))
+            {
+                System.out.println("You are purchasing 5 black pens");
+                int amountBPens = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBPens + " black pens x5");
+                break;
+            }
+            else if(read.equalsIgnoreCase("red pens"))
+            {
+                System.out.println("You are purchasing a 5 red pens");
+                int amountRPens = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountRPens + " red pens x5");
+                break;
+            }
+            else if(read.equalsIgnoreCase("dr bob"))
+            {
+                System.out.println("You are purchasing a can of Dr. Bob");
+                int amountBob = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBob + " cans of Dr. Bob");
+                break;
+            }
+            else if(read.equalsIgnoreCase("mountain shoutin"))
+            {
+                System.out.println("You are purchasing a can of Mountain Shoutain");
+                int amountMt = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountMt + " cans of Mountain Shoutin");
+                break;
+            }
+        }
+        String three = readLine("Would you like to make another purcahse? Answer with yes or no: ");
+        if(three.equalsIgnoreCase("yes"))
+        {
+            userDecision();
+        }
+        if(three.equalsIgnoreCase("no"))
+        {
+            System.out.println("You are purchasing " + TOTAL_ITEMS + " items");
+            System.out.println("You total is $" + TOTAL_PRICE);
+        }
+    }
