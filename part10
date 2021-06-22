@@ -1,0 +1,105 @@
+private void userDecision()
+    {
+        
+        while(true)
+        {
+            String read = readLine("What do you want to purchase today: ");
+            if(read.equalsIgnoreCase("chocolate bar"))
+            {
+                System.out.println("You are purchasing a chocolate bar");
+                int amountBars = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBars + " chocolate bars");
+                changePrice(NUM_CHOCOLATEBAR, amountBars);
+                changeAmount(NUM_CHOCOLATEBAR, amountBars, read);
+                
+                break;
+            }
+            else if(read.equalsIgnoreCase("chips"))
+            {
+                System.out.println("You are purchasing a bag of chips");
+                int amountChips = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountChips + " bags of chips");
+                changeAmount(NUM_CHIPS,amountChips, read);
+                changePrice(COST_CHIPS, amountChips);
+                break;
+            }
+            else if(read.equalsIgnoreCase("black pens"))
+            {
+                System.out.println("You are purchasing 5 black pens");
+                int amountBPens = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBPens + " black pens x5");
+                changeAmount(NUM_BLACKPEN,amountBPens, read);
+                changePrice(COST_BLACKPENS, amountBPens);
+                break;
+            }
+            else if(read.equalsIgnoreCase("red pens"))
+            {
+                System.out.println("You are purchasing a 5 red pens");
+                int amountRPens = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountRPens + " red pens x5");
+                changeAmount(NUM_REDPEN,amountRPens, read);
+                changePrice(COST_REDPENS, amountRPens);
+            }
+            else if(read.equalsIgnoreCase("dr bob"))
+            {
+                System.out.println("You are purchasing a can of Dr. Bob");
+                int amountBob = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountBob + " cans of Dr. Bob");
+                changeAmount(NUM_DRBOB,amountBob, read);
+                changePrice(COST_DRBOB, amountBob);
+                break;
+            }
+            else if(read.equalsIgnoreCase("mountain shoutin"))
+            {
+                System.out.println("You are purchasing a can of Mountain Shoutain");
+                int amountMt = readInt("How many would you like to buy: ");
+                System.out.println("You are purchasing " + amountMt + " cans of Mountain Shoutin");
+                changeAmount(NUM_MOUNTAINSHOUTIN,amountMt, read);
+                changePrice(COST_MOUNTAINSHOUTIN, amountMt);
+                break;
+            }
+        }
+        String three = readLine("Would you like to make another purcahse? Answer with yes or no: ");
+        if(three.equalsIgnoreCase("yes"))
+        {
+            makePurchase();
+        }
+        if(three.equalsIgnoreCase("no"))
+        {
+            System.out.println("You are purchasing " + TOTAL_PD + " items");
+            System.out.println("You total is $" + TOTAL_PRICE);
+        }
+    }
+    // this code changes the total cost
+    private void changePrice(double item, int amount)
+    {
+        TOTAL_PRICE += (double)(item * amount);
+    }
+    // this is the code that changes the amount
+    private void changeAmount(int item , int amount, String read)
+    {
+        if(read.equalsIgnoreCase("chocolate bar"))
+        {
+            NUM_CHOCOLATEBAR = NUM_CHOCOLATEBAR - amount;
+        }
+        else if(read.equalsIgnoreCase("chips"))
+        {
+            NUM_CHIPS = NUM_CHIPS - amount;
+        }
+        else if(read.equalsIgnoreCase("black pens"))
+        {
+            NUM_BLACKPEN = NUM_BLACKPEN - amount;
+        }
+        else if(read.equalsIgnoreCase("red pens"))
+        {
+            NUM_REDPEN = NUM_REDPEN - amount;
+        }
+        else if(read.equalsIgnoreCase("dr bob"))
+        {
+            NUM_DRBOB = NUM_DRBOB - amount;
+        }
+        else if(read.equalsIgnoreCase("mountain shoutin"))
+        {
+            NUM_MOUNTAINSHOUTIN = NUM_MOUNTAINSHOUTIN - amount;
+        }
+    }
